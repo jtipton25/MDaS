@@ -35,7 +35,7 @@ Welcome:
 
 --
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width="40%", fig.align='center'}
 knitr::include_graphics("./images/frequentists_vs_bayesians_2x.png")
 ```
 
