@@ -420,17 +420,17 @@ ggplot(dat, aes(x = x, y = basis, color = as.factor(knots))) +
 # Data Model
 
 
-\begin{align*}
+\begin{align}
 [\mathbf{z}, \boldsymbol{\theta}_D, \boldsymbol{\theta}_P | \mathbf{y}] & \propto
 \color{red}{[\mathbf{y} | \boldsymbol{\theta}_D, \mathbf{z}]}  [\mathbf{z} | \boldsymbol{\theta}_P] [\boldsymbol{\theta}_D] [\boldsymbol{\theta}_P]
-\end{align*}
+\end{align}
 
 
 ---
 
 # Climate Data Model
 
-\begin{align*}
+$$\begin{align}
 \begin{pmatrix}
 \mathbf{T}_{t} \\ 
 \mathbf{P}_{t} 
@@ -446,7 +446,7 @@ ggplot(dat, aes(x = x, y = basis, color = as.factor(knots))) +
 \mathbf{T}_{t-1} \\ 
 \mathbf{P}_{t-1} 
 \end{pmatrix}, \boldsymbol{\Sigma} \right).}
-\end{align*}
+\end{align}$$
 
 
 <hr style="height:20px; visibility:hidden;" />
@@ -458,10 +458,10 @@ ggplot(dat, aes(x = x, y = basis, color = as.factor(knots))) +
 
 # Tree Ring Data Model
 
-\begin{align*}
+$$\begin{align}
 y_{i t j} & \sim \color{red}{\begin{cases} \mbox{N}\left(\beta_{0_j} + \beta_{1_j} f^{VS}\left(\mathbf{w}_t, \boldsymbol{\theta}^{VS}_j\right), \sigma^2_j \right) & \mbox{if } z_j = 0,\\ \mbox{N}\left(\tilde{\beta}_{0_j} + \tilde{\beta}_{1_j} f^{Pro}\left(\mathbf{w}_t, \boldsymbol{\theta}^{Pro}_j\right), \tilde{\sigma}^2_j \right) & \mbox{if } z_j = 1. \\
 \end{cases}}
-\end{align*}
+\end{align}$$
 
 <hr style="height:20px; visibility:hidden;" />
 
@@ -480,10 +480,10 @@ y_{i t j} & \sim \color{red}{\begin{cases} \mbox{N}\left(\beta_{0_j} + \beta_{1_
 
 # Process Model
 
-\begin{align*}
+\begin{align}
 [\mathbf{z}, \boldsymbol{\theta}_D, \boldsymbol{\theta}_P | \mathbf{y}] & \propto
 [\mathbf{y} | \boldsymbol{\theta}_D, \mathbf{z}]  \color{blue}{[\mathbf{z} | \boldsymbol{\theta}_P]}[\boldsymbol{\theta}_D] [\boldsymbol{\theta}_P]
-\end{align*}
+\end{align}
 
 ---
 
@@ -495,14 +495,9 @@ y_{i t j} & \sim \color{red}{\begin{cases} \mbox{N}\left(\beta_{0_j} + \beta_{1_
 
 <hr style="height:20px; visibility:hidden;" />
 
-\begin{align*}
-f^{\ell}\left(\mathbf{w}_t, \boldsymbol{\theta}^{\ell}_j\right) & = \color{blue}{ \sum_{s=1}^{12} \chi_s \mbox{min} \left(
-              g^{\ell}\left( T_{t,s},
-              \boldsymbol{\theta}^{\ell}_j \right),
-              g^{\ell}\left( P_{t, s},
-              \boldsymbol{\theta}^{\ell}_j \right) \right),} \\
-              & \ell = VS \mbox{ or } Pro. 
-\end{align*}
+$$\begin{align}
+f^{\ell}\left(\mathbf{w}_t, \boldsymbol{\theta}^{\ell}_j\right) & = \color{blue}{ \sum_{s=1}^{12} \chi_s \mbox{min} \left(g^{\ell}\left( T_{t,s}, \boldsymbol{\theta}^{\ell}_j \right), g^{\ell}\left( P_{t, s},\boldsymbol{\theta}^{\ell}_j \right) \right),} \\ & \ell = VS \mbox{ or } Pro. 
+\end{align}$$
 
 ---
 
@@ -668,10 +663,10 @@ for(i in 1:iter){
 
 # Prior Model
 
-\begin{align*}
+\begin{align}
 [\mathbf{z}, \boldsymbol{\theta}_D, \boldsymbol{\theta}_P | \mathbf{y}] & \propto
 [\mathbf{y} | \boldsymbol{\theta}_D, \mathbf{z}]  [\mathbf{z} | \boldsymbol{\theta}_P]\color{orange}{[\boldsymbol{\theta}_D] [\boldsymbol{\theta}_P]}
-\end{align*}
+\end{align}
 
 ---
 
@@ -750,18 +745,18 @@ knitr::include_graphics("./images/fossil-pollen-locations.png")
 
 # Data Model
 
-\begin{align*}
+\begin{align}
 [\mathbf{z}, \boldsymbol{\theta}_D, \boldsymbol{\theta}_P | \mathbf{y}] & \propto
 \color{red}{[\mathbf{y} | \boldsymbol{\theta}_D, \mathbf{z}]}  [\mathbf{z} | \boldsymbol{\theta}_P] [\boldsymbol{\theta}_D] [\boldsymbol{\theta}_P]
-\end{align*}
+\end{align}
 
 ---
 
 # Data Model
 
-\begin{align*}
+\begin{align}
 \mathbf{y}\left( \mathbf{s}_i, t \right) & \sim \color{red}{\operatorname{Dirichlet-Multinomial} \left( N, \exp \left(\mathbf{z}\left( \mathbf{s}_i, t \right) \boldsymbol{\beta} \right)\right)}
-\end{align*}
+\end{align}
 
 <hr style="height:20px; visibility:hidden;" />
 
@@ -792,9 +787,9 @@ knitr::include_graphics("./images/fossil-pollen-locations.png")
 
 <hr style="height:8px; visibility:hidden;" />
 
-\begin{align*}
+\begin{align}
 \mathbf{y}\left( \mathbf{s}_i, t \right) & \sim \color{red}{\operatorname{Dirichlet-Multinomial} \left( N, \exp\left( \mathbf{B} \left( \mathbf{z}\left( \mathbf{s}_i, t \right) \right) \boldsymbol{\beta} \right) \right)}
-\end{align*}
+\end{align}
 
 <hr style="height:8px; visibility:hidden;" />
 
@@ -822,10 +817,10 @@ knitr::include_graphics("./images/alps-functional-fit-all-models-subset.png")
 
 # Process Model
 
-\begin{align*}
+\begin{align}
 [\mathbf{z}, \boldsymbol{\theta}_D, \boldsymbol{\theta}_P | \mathbf{y}] & \propto
 [\mathbf{y} | \boldsymbol{\theta}_D, \mathbf{z}]  \color{blue}{[\mathbf{z} | \boldsymbol{\theta}_P]}[\boldsymbol{\theta}_D] [\boldsymbol{\theta}_P]
-\end{align*}
+\end{align}
 
 ---
 
@@ -833,9 +828,9 @@ knitr::include_graphics("./images/alps-functional-fit-all-models-subset.png")
 * We are interested in estimating the latent process $\mathbf{z} \left( \mathbf{s}, t \right)$.
 
 
-\begin{align*}
+\begin{align}
 \color{blue}{\mathbf{z} \left(t \right) - \mathbf{X} \left( t \right) \boldsymbol{\gamma}} & \sim \color{blue}{\operatorname{N}\left(\mathbf{M}\left(t\right) \left( \mathbf{z} \left(t-1 \right) - \mathbf{X} \left( t \right) \boldsymbol{\gamma} \right), \boldsymbol{R}\left( \boldsymbol{\theta} \right) \right)}
-\end{align*}
+\end{align}
 
 <hr style="height:20px; visibility:hidden;" />
 
@@ -885,9 +880,9 @@ knitr::include_graphics("./images/elevation.png")
 
 * The dynamic climate process becomes
 
-\begin{align*}
+\begin{align}
 \color{blue}{\mathbf{z} \left(t \right) - \mathbf{X} \left( t \right) \boldsymbol{\gamma}} & \approx \color{blue}{\mathbf{M}\left(t\right) \left( \mathbf{z} \left(t-1 \right) - \mathbf{X} \left( t \right) \boldsymbol{\gamma} \right) + \mathbf{r} \left(\mathbf{s}, \mathbf{s}^{\star} \right) \mathbf{R}^{\star}\left( \boldsymbol{\theta} \right)^{-1} \boldsymbol{\tilde{\eta}} \left(t \right)}
-\end{align*}
+\end{align}
 
 
 ---
